@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+
+    <div id="app" >
+        <h2>메모</h2>
+        <input type="text" v-model="memo"> <br>
+        <textarea rows="10" cols="30" v-model="textBox"></textarea>
+        <button @click="addMemo">추가</button>
+        <memo-component 
+            v-for="m in memolist"
+            v-bind:id="m.id"
+            v-bind:key="m.id"
+            colorid="blue"
+            @delete="deleteMemo"
+            >
+            {{m.memo}}
+        </memo-component>
+
+    <!-- 사용할 컴포넌트 -->
+    <script src="./memoComponent.js"></script>
+
+    <!-- 뷰 인스턴스 -->
+    <script src="./main.js"></script>
+</body>
+</html>
